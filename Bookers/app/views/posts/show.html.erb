@@ -1,0 +1,16 @@
+<div class="show-box">
+<p>Title ： <%= @post.title%></p>
+
+
+<p>Body ：<%= @post.body%></p>
+</div>
+<div class="show-box2">
+<%= link_to "Edit", edit_post_path(@post.id) %> 
+
+<%= link_to "Back", books_path %>
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+</div>

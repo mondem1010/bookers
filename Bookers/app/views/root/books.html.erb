@@ -1,0 +1,56 @@
+
+<div class="box">
+<h2>BOOKS</h2>
+
+<table>
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Body</th>
+			<th></th>
+			<th></th>
+			<th></th>
+
+		</tr>
+	</thead>
+	<tbody>
+			 <% @posts.each do |post| %>
+		<tr>
+				    
+				    <td><span><%= post.title %></span></td>
+				    
+				    <td><span><%= post.body %></span></td>
+
+				    <td><span><%=link_to "Show",post_path(post.id)%></span></td>
+
+				    <td><span><%=link_to "Edit",edit_post_path(post.id)%></span></td>
+
+				    <td><span><%= link_to "Destroy", post_path(post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></span></td>
+
+				 <!--    <%=link_to "編集",edit_post_path(post.id)%> -->
+
+
+		</tr>
+				 <% end %>
+			<!-- </td> -->
+
+
+			<!-- <td></td> -->
+	</tbody>
+</table>
+</div>
+<div class="box2">
+<h2>New Book</h2>
+<!-- form_for部分 -->
+<%= form_for(@post) do |f| %>
+ 
+    <label>Title</label><br>
+    <%= f.text_field :title %><br>
+ 
+    <label>Body</label><br>
+    <%= f.text_area :body %><br>
+ 
+    <%= f.submit 'Create Book' %>
+ 
+<% end %>
+</div>
